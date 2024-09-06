@@ -1,9 +1,11 @@
 from typing import Any
 import os
 import pandas as pd
-from pymongo.mongo_client import MongoClient
+import pymongo
 import json
 from ensure import ensure_annotations
+from pymongo.mongo_client import MongoClient
+
 
 
 class mongo_operation:
@@ -38,7 +40,7 @@ class mongo_operation:
             
         return self.collection
     
-    def insert_record(self,record: dict, collection_name: str) -> Any:
+    def insert_record(self,record, collection_name: str) -> Any:
         if type(record) == list:
             for data in record:
                 if type(data) != dict:
@@ -59,5 +61,5 @@ class mongo_operation:
             dataframe=pd.read_excel(self.path,encoding='utf-8')
             
         datajson=json.loads(dataframe.to_json(orient='record'))
-        collection=self.create_collection()
+        collection=self.create_collection(collection_name)
         collection.insert_many(datajson)
