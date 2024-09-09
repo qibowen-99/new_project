@@ -20,10 +20,10 @@ with open("README.md", "r", encoding='utf-8') as fh:
 setup(
     name="mongodb_connect",
     version="0.1.0",
-    author="Tarun",
-    author_email="malhotratarun06@gmail.com",
+    author="Bowen",
+    author_email="bqi006@ucr.edu",
     long_description=long_description,
-    url=f'https://github.com/malhotratk/packagetest.git',
+    url=f'https://github.com/qibowen-99/new_project.git',
     # install_requires=get_requirements("requirements.txt"),
     package_dir={"": "src"},
     packages=find_packages(where="src")
